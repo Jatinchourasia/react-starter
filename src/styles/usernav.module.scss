@@ -1,0 +1,21 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 0.5rem;
+  width: 100%;
+
+  button {
+    &:hover {
+      background: rgb(31, 218, 40);
+      transition: 0.5s ease;
+    }
+    border: none;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+    background: rgb(1, 192, 11);
+    color: white;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+  }
+}

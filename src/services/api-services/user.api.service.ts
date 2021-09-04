@@ -1,8 +1,8 @@
-import { API } from "./url.apis.service";
 import { IUser } from "./../../models/handle.interfaces";
+import { API } from "./url.api.service";
 
 export const createUser = (user: IUser) => {
-  return fetch(`${API}/newuser`, {
+  return fetch(`${API}/users`, {
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -17,23 +17,23 @@ export const createUser = (user: IUser) => {
 };
 
 export const getUsers = () => {
-  return fetch(`${API}/userList`, {
+  return fetch(`${API}/users`, {
     method: "GET",
   })
     .then((response) => response.json())
     .catch((err) => console.log(err));
 };
 
-export const getUser = (userId) => {
-  return fetch(`${API}/user/${userId}`, {
+export const getUserById = (userId: string) => {
+  return fetch(`${API}/users/${userId}`, {
     method: "GET",
   })
     .then((response) => response.json())
     .catch((err) => console.log(err));
 };
 
-export const deleteUser = (userId) => {
-  return fetch(`${API}/user/${userId}`, {
+export const deleteUser = (userId: string) => {
+  return fetch(`${API}/users/${userId}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
@@ -43,8 +43,8 @@ export const deleteUser = (userId) => {
     .catch((err) => console.log(err));
 };
 
-export const updateUser = (userId, user) => {
-  return fetch(`${API}/user/${userId}`, {
+export const updateUser = (userId: string, user: IUser) => {
+  return fetch(`${API}/users/${userId}`, {
     method: "PUT",
     headers: {
       Accept: "application/json",
