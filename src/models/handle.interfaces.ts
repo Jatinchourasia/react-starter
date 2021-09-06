@@ -1,9 +1,9 @@
 export interface IUser {
-  id?: string;
+  id: string;
   name: string;
-  role: string;
-  email: string;
-  contact: number;
+  profile: string;
+  location: string;
+  contact: string;
 }
 
 export interface IProps {}

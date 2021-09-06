@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Switch, Route, BrowserRouter } from "react-router-dom";
-import UpdateUser from "./../containers/update-user";
 import AddUser from "./AddUser";
 import UserList from "./Home";
 import UserDetail from "./UserDetails";

@@ -6,7 +6,7 @@ import style from "../../styles/usercard.module.scss";
 
 interface IProps {
   name: string;
-  id?: string;
+  id: string;
 }
 
 const UserCard: React.FC<IProps> = ({ name, id }) => {

@@ -20,13 +20,13 @@ const AddUser = () => {
   const [user, setUser] = useState({
     id: "",
     name: "",
-    role: "",
-    email: "",
-    contact: 0,
+    profile: "",
+    location: "",
+    contact: "",
   });
   const [success, setSuccess] = useState(false);
 
-  const { name, role, email, contact } = user;
+  const { name, profile, location, contact } = user;
 
   const handleChange = (name: string, value: string | number) => {
     setUser({ ...user, [name]: value });
@@ -82,7 +82,7 @@ const AddUser = () => {
                 handleChange("email", e.target.value);
               }}
               placeholder="Email"
-              value={email}
+              value={location}
             />
           </Form.Item>{" "}
           <Form.Item
@@ -95,7 +95,7 @@ const AddUser = () => {
                 handleChange("role", e.target.value);
               }}
               placeholder="Role"
-              value={role}
+              value={profile}
             />
           </Form.Item>{" "}
           <Form.Item
