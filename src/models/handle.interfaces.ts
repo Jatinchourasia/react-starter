@@ -1,3 +1,5 @@
+import { Action } from "../store/actions/actionTypes";
+
 export interface IUser {
   id: string;
   name: string;
@@ -6,19 +8,22 @@ export interface IUser {
   contact: string;
 }
 
-export interface IProps {}
-// export interface IAction {
-//   type: string;
-//   payload: any;
-// }
+export interface IAction {
+  type: Action;
+  payload: any;
+}
 
-export type UserState = {
+export interface UserState {
   users: IUser[];
+}
+
+export type UserAction = {
+  type: string;
+  payload: UserState;
 };
 
-// export type UserAction = {
-//   type: string;
-//   user: IUser;
-// };
+export interface IRootState {
+  userState: UserState;
+}
 
-// export type DispatchType = (args: UserAction) => UserAction;
+export type DispatchType = (args: UserAction) => UserAction;

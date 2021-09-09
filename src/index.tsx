@@ -3,18 +3,29 @@ import ReactDOM from "react-dom";
 import "antd/dist/antd.css";
 import reportWebVitals from "./reportWebVitals";
 import App from "./pages/App";
-// import { createStore, applyMiddleware, Store } from "redux";
-// import { Provider } from "react-redux";
-// import thunk from "redux-thunk";
-// import usersReducer from "./store/reducers/reducer";
+import { createStore, applyMiddleware, compose } from "redux";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+import rootReducer from "./store/reducers/root-reducer";
 
-// const store = createStore(usersReducer, applyMiddleware(thunk));
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
+  }
+}
+
+const composeEnchancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(
+  rootReducer,
+  composeEnchancer(applyMiddleware(thunk))
+);
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Provider store={store}> */}
-    <App />
-    {/* </Provider> */}
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

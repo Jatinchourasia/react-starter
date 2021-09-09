@@ -24,6 +24,12 @@ export const getUsers = () => {
     .catch((err) => console.log(err));
 };
 
+// export const getUsers = () => {
+//   return axios
+//     .get(`${API}/users`)
+//     .then((response) => response.data)
+//     .catch((err) => console.log(err));
+// };
 export const getUserById = (userId: string) => {
   return fetch(`${API}/users/${userId}`, {
     method: "GET",

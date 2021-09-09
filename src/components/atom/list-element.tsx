@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { UserState } from "../../models/handle.interfaces";
+import { IRootState, UserState } from "../../models/handle.interfaces";
 import {
   deleteUser,
   getUsers,
@@ -9,20 +9,16 @@ import { IUser } from "./../../models/handle.interfaces";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import style from "../../styles/usercard.module.scss";
+import { loadUsers } from "../../store/actions/action";
 
 const ListElement = () => {
-  const [users, setUsers] = useState<IUser[]>([]);
-  // const dispacth = useDispatch();
-  // const = useSelector<UserState>((state) => state.users);
+  let dispatch = useDispatch();
+
+  const users = useSelector((state: IRootState) => state.userState.users);
 
   const preload = () => {
     getUsers().then((data) => {
-      if (data.error) {
-        console.log(data.err);
-      } else {
-        setUsers(data);
-        // dispacth(userlist(data));
-      }
+      dispatch(loadUsers(data));
     });
   };
 
