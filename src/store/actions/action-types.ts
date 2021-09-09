@@ -1,0 +1,5 @@
+export enum EAction {
+  ADD_USER = "ADD_USER",
+  DELETE_USER = "DELETE_USER",
+  FETCH_USERS = "FETCH_USERS",
+}

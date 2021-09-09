@@ -1,11 +1,25 @@
 import { DispatchType, IUser } from "./../../models/handle.interfaces";
-import { Action } from "./actionTypes";
+import { EAction } from "./action-types";
 
-export const loadUsers = (data: IUser[]) => (dispatch: DispatchType) => {
-  console.log("get", data);
-
+export const loadUsersAction = (data: IUser[]) => (dispatch: DispatchType) => {
   dispatch({
-    type: Action.FETCH_USERS,
+    type: EAction.FETCH_USERS,
+    payload: {
+      users: data,
+    },
+  });
+};
+export const deleteUserAction = (data: IUser[]) => (dispatch: DispatchType) => {
+  dispatch({
+    type: EAction.DELETE_USER,
+    payload: {
+      users: data,
+    },
+  });
+};
+export const createUserAction = (data: IUser[]) => (dispatch: DispatchType) => {
+  dispatch({
+    type: EAction.ADD_USER,
     payload: {
       users: data,
     },

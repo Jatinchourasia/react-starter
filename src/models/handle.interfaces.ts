@@ -1,4 +1,4 @@
-import { Action } from "../store/actions/actionTypes";
+import { EAction } from "../store/actions/action-types";
 
 export interface IUser {
   id: string;
@@ -9,7 +9,7 @@ export interface IUser {
 }
 
 export interface IAction {
-  type: Action;
+  type: EAction;
   payload: any;
 }
 

@@ -73,29 +73,29 @@ const AddUser = () => {
             />
           </Form.Item>{" "}
           <Form.Item
-            label="email"
-            name="email"
-            rules={[{ required: true, message: "Please input your email!" }]}
+            label="profile"
+            name="lprofile"
+            rules={[{ required: true, message: "Please input your profile!" }]}
           >
             <Input
               onChange={(e) => {
-                handleChange("email", e.target.value);
+                handleChange("profile", e.target.value);
               }}
-              placeholder="Email"
-              value={location}
+              placeholder="Profile"
+              value={profile}
             />
           </Form.Item>{" "}
           <Form.Item
-            label="role"
-            name="role"
-            rules={[{ required: true, message: "Please input your role!" }]}
+            label="location"
+            name="location"
+            rules={[{ required: true, message: "Please input your location!" }]}
           >
             <Input
               onChange={(e) => {
-                handleChange("role", e.target.value);
+                handleChange("location", e.target.value);
               }}
-              placeholder="Role"
-              value={profile}
+              placeholder="Location"
+              value={location}
             />
           </Form.Item>{" "}
           <Form.Item

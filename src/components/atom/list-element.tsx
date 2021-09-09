@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { IRootState, UserState } from "../../models/handle.interfaces";
+import { IRootState } from "../../models/handle.interfaces";
 import {
   deleteUser,
   getUsers,
 } from "../../services/api-services/user.api.service";
-import { IUser } from "./../../models/handle.interfaces";
 import { Link } from "react-router-dom";
 import { Button } from "antd";
 import style from "../../styles/usercard.module.scss";
-import { loadUsers } from "../../store/actions/action";
+import { deleteUserAction, loadUsersAction } from "../../store/actions/action";
+import { IUser } from "./../../models/handle.interfaces";
 
 const ListElement = () => {
   let dispatch = useDispatch();
-
   const users = useSelector((state: IRootState) => state.userState.users);
 
   const preload = () => {
     getUsers().then((data) => {
-      dispatch(loadUsers(data));
+      dispatch(loadUsersAction(data));
     });
   };
 
@@ -31,14 +30,14 @@ const ListElement = () => {
       if (data.error) {
         console.log(data.err);
       } else {
-        preload();
+        dispatch(deleteUserAction(data));
       }
     });
   };
 
   return (
     <div>
-      {users.map((data) => {
+      {users.map((data: IUser) => {
         return (
           <div className={style.container}>
             <div className="">{data.name}</div>
